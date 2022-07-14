@@ -26,7 +26,7 @@ peaks.xs = [340, 280, 280, 170, 230, 250];
 peaks.ys = [340, 220, 190, 230, 250, 270];
 %% RRT
 Step = 50;
-sample_rate = 0.5;
+sample_rate = 0.3;
 height_margin = 20;
 max_tree_size = 500;
 beta_max = 2 * atan(0.5 * Step / Rmin);
@@ -180,7 +180,7 @@ if is_path_found
     ya = path3d(2, 1);
     za = path3d(3, 1);
     psia = angle(path3d(1, 2), path3d(2, 2), path3d(1, 1), path3d(2, 1));
-    tao = 2;
+    tau = 1;
 
     problem.xa = xa;
     problem.ya = ya;
@@ -193,7 +193,7 @@ if is_path_found
 
     problem.k = k;
     problem.Rmin = Rmin;
-    problem.tao = tao;
+    problem.tau = tau;
     % PSO参数设置
     c1 = 1;
     c2 = 1;
@@ -324,7 +324,7 @@ if is_path_found
     if beta3 < 0
         beta3 = beta3 + 2 * pi;
     end
-    gamma3 = - 2 * tao * pi + pi / 2 + psia - beta1 - beta2 - beta3:pi / 100:pi / 2 + psia - beta1 - beta2;
+    gamma3 = - 2 * tau * pi + pi / 2 + psia - beta1 - beta2 - beta3:pi / 100:pi / 2 + psia - beta1 - beta2;
     x3 = xf + Rep * cos(gamma3);
     y3 = yf + Rep * sin(gamma3);
     z3 = zd + Rep * (gamma3 - (pi / 2 + psia - beta1 - beta2)) / k;
@@ -336,7 +336,7 @@ if is_path_found
     plot3(x3, y3, z3, 'g', 'LineWidth', 1.5);
     hold on
 
-    ze = zd + Rep * (-beta3 - 2 * tao * pi) / k;
+    ze = zd + Rep * (-beta3 - 2 * tau * pi) / k;
     beta4 = asin(Rmin / (Rep - Rmin)) + pi / 2;
     gamma4 = pi / 2 + psia - beta1 - beta2 - beta3 - beta4:pi / 100:pi / 2 + psia - beta1 - beta2 - beta3;
     x4 = xf + ((Rep - Rmin) * cos(beta4 - pi / 2)) + Rmin * cos(gamma4);

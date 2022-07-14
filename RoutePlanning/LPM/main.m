@@ -76,7 +76,7 @@ end
 figure(1);
 plot3(statesPlot(:, 1), statesPlot(:, 2), statesPlot(:, 3));
 grid on;
-xlabel('x', 'FontSize', 15); ylabel('y', 'FontSize', 15); zlabel('h', 'FontSize', 15);
+xlabel('x', 'FontSize', 15); ylabel('y', 'FontSize', 15); zlabel('z', 'FontSize', 15);
 axis equal;
 
 timePlot = 0.5 * (problem.tf - problem.t0) * pointsPlot + 0.5 * (problem.tf + problem.t0);

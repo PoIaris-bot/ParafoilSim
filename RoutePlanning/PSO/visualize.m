@@ -101,6 +101,9 @@ y6 = linspace(0, yf, n6);
 h6 = linspace(hg, hf, n6);
 psi6 = - 3 * pi * ones(size(x6));
 plot3(x6, y6, h6);
+xlabel('x', 'FontSize', 15);
+ylabel('y', 'FontSize', 15);
+zlabel('z', 'FontSize', 15);
 route = [
     x6, x5, x4, x3, x2, x1;
     y6, y5, y4, y3, y2, y1;

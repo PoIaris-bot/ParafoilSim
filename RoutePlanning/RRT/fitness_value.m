@@ -10,7 +10,7 @@ zf = problem.zf;
 
 k = problem.k;
 Rmin = problem.Rmin;
-tao = problem.tao;
+tau = problem.tau;
 
 xO1 = xa + Rmin * cos(psia - pi / 2);
 yO1 = ya + Rmin * sin(psia - pi / 2);
@@ -51,5 +51,5 @@ end
 
 beta4 = asin(Rmin ./ (Rep - Rmin)) + pi / 2;
 
-y = abs(Rmin * (beta1 + beta2 + beta4) + Rep .* (beta3 + 2 * tao * pi) + sqrt(xbc.^2 + ybc.^2) + sqrt((Rep - 2 * Rmin) .* Rep) - (za - zf) * k);
+y = abs(Rmin * (beta1 + beta2 + beta4) + Rep .* (beta3 + 2 * tau * pi) + sqrt(xbc.^2 + ybc.^2) + sqrt((Rep - 2 * Rmin) .* Rep) - (za - zf) * k);
 end
