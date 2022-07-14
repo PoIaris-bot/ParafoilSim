@@ -15,9 +15,7 @@ rho = problem.rho;
 Q = eye(P * numOutputs);
 R = eye(M * numInputs);
 
-dist = distance(x, route);
-[~, idx] = min(dist);
-xr = route(:, idx);
+[xr, idx] = getTarget(x, route);
 xi = [
     x - xr;
     u;
